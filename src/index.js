@@ -22,7 +22,8 @@ app.use(helmet());
 app.use(
   cors({
     // Only requests coming from here can reach the backend
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.LOCAL_ORIGIN,
+    // origin: process.env.GIT_ORIGIN,
   }),
 );
 app.use(express.json());
