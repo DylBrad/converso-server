@@ -21,5 +21,13 @@ router.get('/', async (req, res, next) => {
 });
 
 // Get data to display cards
+router.get('/getLesson', async (req, res, next) => {
+  try {
+    const lesson = await Lessons.findOne({ _id: req.query._id });
+    res.json(lesson);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
