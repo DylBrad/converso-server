@@ -16,6 +16,8 @@ const lessonSchema = new mongoose.Schema({
   },
   thumbnail: String,
   graphics: String,
+  category: String,
+  difficulty: String,
   cards: [lessonCardsSchema],
 });
 
