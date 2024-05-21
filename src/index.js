@@ -6,6 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const lessons = require('./api/lessons');
+const user = require('./api/user');
 
 const app = express();
 
@@ -35,6 +36,9 @@ app.get('/', (req, res) => {
 
 // lesson routes
 app.use('/api/lessons', lessons);
+
+// user router
+app.use('/api/user', user);
 
 const port = process.env.PORT || 3001;
 
