@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const cardSchema = new mongoose.Schema({
+  english: String,
+  portugueseBrazil: String,
+});
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -17,6 +22,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  cards: [cardSchema],
 });
 
 const User = mongoose.model('User', userSchema);
