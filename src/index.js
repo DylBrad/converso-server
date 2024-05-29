@@ -29,7 +29,8 @@ app.use(express.json());
 
 // HELLO WORLD!
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  const logOrigin = process.env.CORS_ORIGIN;
+  res.send('Hello World!', logOrigin);
 });
 
 // lesson routes
