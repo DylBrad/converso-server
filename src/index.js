@@ -6,6 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const lessons = require('./api/lessons');
+const user = require('./api/user');
 
 const app = express();
 
@@ -21,9 +22,7 @@ app.use(morgan('common'));
 app.use(helmet());
 app.use(
   cors({
-    // Only requests coming from here can reach the backend
-    origin: process.env.LOCAL_ORIGIN,
-    // origin: process.env.GIT_ORIGIN,
+    origin: process.env.CORS_ORIGIN,
   }),
 );
 app.use(express.json());
@@ -35,6 +34,9 @@ app.get('/', (req, res) => {
 
 // lesson routes
 app.use('/api/lessons', lessons);
+
+// user router
+app.use('/api/user', user);
 
 const port = process.env.PORT || 3001;
 
