@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const lessons = require('./api/lessons');
 const user = require('./api/user');
+const cards = require('./api/cards');
 
 const app = express();
 
@@ -37,6 +38,9 @@ app.use('/api/lessons', lessons);
 
 // user router
 app.use('/api/user', user);
+
+// Cards routes
+app.use('/api/cards', cards);
 
 const port = process.env.PORT || 3001;
 
