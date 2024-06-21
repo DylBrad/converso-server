@@ -41,4 +41,14 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+router.delete('/deleteAccount', async (req, res, next) => {
+  try {
+    const userId = req.body;
+    const deletedUser = await User.findByIdAndDelete(userId);
+    res.json(deletedUser);
+  } catch (error) {
+    console.error('there was a problem deleting user.', error.message);
+  }
+});
+
 module.exports = router;
