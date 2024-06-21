@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const cardSchema = new mongoose.Schema({
+const UserCardSchema = new mongoose.Schema({
   english: String,
   portugueseBrazil: String,
+  progress: String,
 });
 
 const userSchema = new mongoose.Schema({
@@ -22,7 +23,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  cards: [cardSchema],
+  cards: [UserCardSchema],
 });
 
 const User = mongoose.model('User', userSchema);
